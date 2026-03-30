@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sidebar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="frame-container">
+    <iframe id="frame-claude" src="https://claude.ai/new" class="chat-frame active"></iframe>
+    <iframe id="frame-chatgpt" src="about:blank" class="chat-frame"></iframe>
+    <iframe id="frame-gemini" src="about:blank" class="chat-frame"></iframe>
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="menu-panel" id="claude-menu">
+      <div class="menu-search">
+        <input type="text" id="menu-search-input" placeholder="Search conversations..." autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="menu-nav">
+        <a class="menu-item" data-url="/new">New Chat</a>
+        <div class="menu-divider"></div>
+        <a class="menu-item" data-url="/recents">Chats</a>
+        <a class="menu-item" data-url="/projects">Projects</a>
+        <a class="menu-item" data-url="/artifacts">Artifacts</a>
+        <a class="menu-item" data-url="/code/">Code</a>
+      </div>
+      <div class="menu-results" id="menu-results"></div>
+    </div>
+  </div>
+  <div class="toolbar">
+    <div class="tabs">
+      <button class="tab active" data-provider="claude">Claude</button>
+      <button class="tab" data-provider="chatgpt">ChatGPT</button>
+      <button class="tab" data-provider="gemini">Gemini</button>
+    </div>
+    <div class="actions">
+      <button class="action-btn" id="menu-btn" title="Menu" style="display: none;">&#9776;</button>
+      <div class="screenshot-wrapper">
+        <button class="action-btn" id="screenshot-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </button>
+        <div class="screenshot-tooltip">
+          <div class="tooltip-title">Screenshot</div>
+          <div class="tooltip-desc">Use your browser's screenshot tool to capture the page, then paste it into the chat.</div>
+          <div class="tooltip-shortcut"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></div>
+        </div>
+      </div>
+      <button class="action-btn" id="refresh-btn" title="Refresh">&#x21bb;</button>
+      <button class="action-btn" id="popout-btn" title="Open in new tab">&#x2197;</button>
+    </div>
+  </div>
+  <script src="sidebar.js"></script>
+</body>
+</html>
